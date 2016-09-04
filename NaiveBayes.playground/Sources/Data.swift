@@ -1,14 +1,14 @@
 import Foundation
 
 public func labels(filename: String) -> [Double] {
-    let path = "/Users/Henning/Documents/Machine Learning/NaiveBayes.playground/Resources/\(filename)"
+    let path = Bundle.main.pathForResource(filename, ofType: "csv")!
     let data = try! String(contentsOfFile: path)
     
     return data.components(separatedBy: ";").map { Double($0) ?? 0 }
 }
 
 public func features(filename: String) -> Matrix<Double> {
-    let path = "/Users/Henning/Documents/Machine Learning/NaiveBayes.playground/Resources/\(filename)"
+    let path = Bundle.main.pathForResource(filename, ofType: "csv")!
     let data = try! String(contentsOfFile: path)
     
     let lines = data.components(separatedBy: "\n").filter { !$0.isEmpty }

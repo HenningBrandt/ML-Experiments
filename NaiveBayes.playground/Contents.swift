@@ -5,10 +5,10 @@
 import UIKit
 
 let classifier = NBClassifier<Double>()
-try! classifier.train(features: features(filename: "training_data.csv"), labels: labels(filename: "training_labels.csv"))
+try! classifier.train(features: features(filename: "training_data"), labels: labels(filename: "training_labels"))
 
-let testFeatures = features(filename: "test_data.csv")
-let testLabels = labels(filename: "test_labels.csv")
+let testFeatures = features(filename: "test_data")
+let testLabels = labels(filename: "test_labels")
 
 let accuracy = try! classifier.accuracy(testData: testFeatures, testLabels: testLabels)
 print(accuracy)
